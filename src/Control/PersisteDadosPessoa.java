@@ -196,6 +196,7 @@ public class PersisteDadosPessoa {
     //"insertSetor;Mecanica;000111"
     private void insertSetor(Setor setor) {
         setores.add(setor);
+        System.out.println("Aqui "+setores.toString());
     }
 
     private String updateSetor(String s, Setor n) {

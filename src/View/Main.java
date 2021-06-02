@@ -27,14 +27,42 @@ public class Main {
         String dados = "";
 
         CriaConexao conexao = new CriaConexao();
-        while (opcao != 6) {
+
+        while (opcao != 2) {
             System.out.println("Bem vindo ao Sistema de cadastro de Funcionários.");
+            System.out.println("Cadastre os setores desejados:");
+
+            System.out.println("1. Para cadastrar;");
+            System.out.println("2. Para sair;");
+
+            Scanner ler = new Scanner(System.in);
+            opcao = ler.nextInt();
+            switch (opcao) {
+                case 1:
+                    dados = "insertsetor";
+                    ler.nextLine();
+                    System.out.println("Digite nome do setor:");
+                    dados += ";" + ler.nextLine();
+                    System.out.println("Digite o número da equipe do setor:");
+                    dados += ";" + ler.nextLine();
+                    break;
+            }
+
+            conexao.criaConexao(dados);
+        }
+        while (opcao != 6) {
+            System.out.println("");
             System.out.println("Escolha uma opção:");
-            System.out.println("1. Inserir um Registro;");
-            System.out.println("2. Atualizar um Registro;");
-            System.out.println("3. Deletar um Registro;");
-            System.out.println("4. Buscar um Registro;");
-            System.out.println("5. Listar todos os Registros;");
+            System.out.println("1. Inserir um Registro de funcionário;");
+            System.out.println("2. Atualizar um Registro de funcionário;");
+            System.out.println("3. Deletar um Registro de funcionário;");
+            System.out.println("4. Buscar um Registro de funcionário;");
+            System.out.println("5. Listar todos os Registro de funcionário;");
+            System.out.println("1. Inserir um Registro de setor;");
+            System.out.println("2. Atualizar um Registro de setor;");
+            System.out.println("3. Deletar um Registro de setor;");
+            System.out.println("4. Buscar um Registro de setor;");
+            System.out.println("5. Listar todos os Registro de setor;");
             System.out.println("6. Sair;");
 
             Scanner ler = new Scanner(System.in);
@@ -42,7 +70,8 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    dados = "insert";
+                    dados = "insertpessoa";
+                    //Parei aqui
                     ler.nextLine();
                     System.out.println("Digite o CPF do funcionario:");
                     dados += ";" + ler.nextLine();

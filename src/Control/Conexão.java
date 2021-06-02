@@ -21,6 +21,7 @@ public class Conexão {
 
         ServerSocket server = new ServerSocket(80);
         server.setReuseAddress(true);
+        PersisteDadosPessoa per = new PersisteDadosPessoa();
 
         while (true) {
             System.out.println("Aguardando conexão...");
@@ -34,13 +35,14 @@ public class Conexão {
 
                 byte[] dadosBrutos = new byte[1024];
                 int qtdBytesLidos = in.read(dadosBrutos);
-             //   while (qtdBytesLidos >= 0) { //enquanto bytes forem lidos...
-                    String dadosStr = new String(dadosBrutos, 0, qtdBytesLidos);
-                    System.out.println(dadosStr);
-         //           qtdBytesLidos = in.read(dadosBrutos);
-           //         qtdBytesLidos-=1;
-            //    }
+                //   while (qtdBytesLidos >= 0) { //enquanto bytes forem lidos...
+                String dadosStr = new String(dadosBrutos, 0, qtdBytesLidos);
+                System.out.println(dadosStr);
+                //           qtdBytesLidos = in.read(dadosBrutos);
+                //         qtdBytesLidos-=1;
+                //    }
 
+                per.criaSetor(dadosStr);
                 OutputStream out = conn.getOutputStream();
                 String msg = "Tá chofento aí??? Aqui tá";
                 out.write(msg.getBytes());
