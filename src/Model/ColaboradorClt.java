@@ -14,8 +14,8 @@ public class ColaboradorClt extends Pessoa{
     private String mesAnoContratado;
     private String tipo = "CLT";
 
-    public ColaboradorClt(String nome, String cpf, String endereco, String setor, String equipe, String mesAnoContratado, String funcao) {
-        super(nome, cpf, endereco, setor, equipe);
+    public ColaboradorClt(String nome, String cpf, String endereco, String mesAnoContratado, String funcao, String setorIndex) {
+        super(nome, cpf, endereco, setorIndex);
         this.funcao = funcao;
         this.mesAnoContratado = mesAnoContratado;
     }

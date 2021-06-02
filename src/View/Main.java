@@ -45,12 +45,12 @@ public class Main {
                     dados += ";" + ler.nextLine();
                     System.out.println("Digite o número da equipe do setor:");
                     dados += ";" + ler.nextLine();
+                    conexao.criaConexao(dados);
                     break;
             }
 
-            conexao.criaConexao(dados);
         }
-        while (opcao != 6) {
+        while (opcao != 11) {
             System.out.println("");
             System.out.println("Escolha uma opção:");
             System.out.println("1. Inserir um Registro de funcionário;");
@@ -58,12 +58,12 @@ public class Main {
             System.out.println("3. Deletar um Registro de funcionário;");
             System.out.println("4. Buscar um Registro de funcionário;");
             System.out.println("5. Listar todos os Registro de funcionário;");
-            System.out.println("1. Inserir um Registro de setor;");
-            System.out.println("2. Atualizar um Registro de setor;");
-            System.out.println("3. Deletar um Registro de setor;");
-            System.out.println("4. Buscar um Registro de setor;");
-            System.out.println("5. Listar todos os Registro de setor;");
-            System.out.println("6. Sair;");
+            System.out.println("6. Inserir um Registro de setor;");
+            System.out.println("7. Atualizar um Registro de setor;");
+            System.out.println("8. Deletar um Registro de setor;");
+            System.out.println("9. Buscar um Registro de setor;");
+            System.out.println("10. Listar todos os Registro de setor;");
+            System.out.println("11. Sair;");
 
             Scanner ler = new Scanner(System.in);
             opcao = ler.nextInt();
@@ -84,10 +84,6 @@ public class Main {
                     if (opcao == 1) {
                         dados += ";clt";
                         ler.nextLine();
-                        System.out.println("Digite o setor:");
-                        dados += ";" + ler.nextLine();
-                        System.out.println("Digite a matrícula:");
-                        dados += ";" + ler.nextLine();
                         System.out.println("Digite o mês e ano de contratação (formato MMAAAA):");
                         dados += ";" + ler.nextLine();
                         System.out.println("Digite a função");
@@ -95,18 +91,18 @@ public class Main {
                     } else {
                         dados += ";temporario";
                         ler.nextLine();
-                        System.out.println("Digite o setor:");
-                        dados += ";" + ler.nextLine();
-                        System.out.println("Digite a matrícula:");
-                        dados += ";" + ler.nextLine();
                         System.out.println("Digite o tempo do contrato (Formato MM):");
                         dados += ";" + ler.nextLine();
                         System.out.println("Digite a função");
                         dados += ";" + ler.nextLine();
                     }
+                    System.out.println("Defina um setor:");
+                    conexao.criaConexao("listsetor");
+                    System.out.println("");
+                    dados += ";" + ler.nextLine();
                     break;
                 case 2:
-                    dados = "update";
+                    dados = "updatepessoa";
                     ler.nextLine();
                     System.out.println("Digite o CPF do funcionario:");
                     dados += ";" + ler.nextLine();
@@ -119,10 +115,6 @@ public class Main {
                     if (opcao == 1) {
                         dados += ";clt";
                         ler.nextLine();
-                        System.out.println("Digite o setor:");
-                        dados += ";" + ler.nextLine();
-                        System.out.println("Digite a matrícula:");
-                        dados += ";" + ler.nextLine();
                         System.out.println("Digite o mês e ano de contratação (formato MMAAAA):");
                         dados += ";" + ler.nextLine();
                         System.out.println("Digite a função");
@@ -130,39 +122,71 @@ public class Main {
                     } else {
                         dados += ";temporario";
                         ler.nextLine();
-                        System.out.println("Digite o setor:");
-                        dados += ";" + ler.nextLine();
-                        System.out.println("Digite a matrícula:");
-                        dados += ";" + ler.nextLine();
                         System.out.println("Digite o tempo do contrato (Formato MM):");
                         dados += ";" + ler.nextLine();
                         System.out.println("Digite a função");
                         dados += ";" + ler.nextLine();
                     }
+                    System.out.println("Defina um setor:");
+                    conexao.criaConexao("listsetor");
+                    System.out.println("");
+                    dados += ";" + ler.nextLine();
                     break;
                 case 3:
-                    dados = "delete";
+                    dados = "deletepessoa";
                     ler.nextLine();
                     System.out.println("Digite o CPF do funcionario:");
                     dados += ";" + ler.nextLine();
                     break;
                 case 4:
-                    dados = "get";
+                    dados = "getpessoa";
                     ler.nextLine();
                     System.out.println("Digite o CPF do funcionario:");
                     dados += ";" + ler.nextLine();
                     break;
                 case 5:
-                    dados = "list";
+                    dados = "listpessoa";
                     break;
+                case 6:
+                    dados = "insertsetor";
+                    ler.nextLine();
+                    System.out.println("Digite nome do setor:");
+                    dados += ";" + ler.nextLine();
+                    System.out.println("Digite o número da equipe do setor:");
+                    dados += ";" + ler.nextLine();
+                    break;
+                case 7:
+                    dados = "updatesetor";
+                    ler.nextLine();
+                    System.out.println("Digite nome do setor:");
+                    dados += ";" + ler.nextLine();
+                    System.out.println("Digite o número da equipe do setor:");
+                    dados += ";" + ler.nextLine();
+                    break;
+                case 8:
+                    dados = "deletesetor";
+                    ler.nextLine();
+                    System.out.println("Digite nome do setor:");
+                    dados += ";" + ler.nextLine();
+                    break;
+                case 9:
+                    dados = "getsetor";
+                    ler.nextLine();
+                    System.out.println("Digite nome do setor:");
+                    dados += ";" + ler.nextLine();
+                    break;
+                case 10:
+                    dados = "listsetor";
+                    break;
+                    
             }
 
             conexao.criaConexao(dados);
-            System.out.println("");
-            System.out.println("Obrigado por usar nosso sistema!!!");
 
             //insert;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;mecânica;123456;032021;mecânico
             //insert;00783962045;RodrigoSouzaTassoni;Rua Adolfo Wagner;temporario;mecânica;123456;03;mecânico
         }
+        System.out.println("");
+        System.out.println("Obrigado por usar nosso sistema!!!");
     }
 }

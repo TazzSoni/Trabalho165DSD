@@ -18,11 +18,8 @@ import java.net.UnknownHostException;
 public class CriaConexao {
     
      public void criaConexao(String dados) throws IOException {
-        System.out.println("Criando conexão...");
 
         try (Socket conn = new Socket("127.0.0.1", 80);) {
-
-            System.out.println("Conectado!");
 
             OutputStream out = conn.getOutputStream();
             out.write(dados.getBytes());
@@ -31,7 +28,7 @@ public class CriaConexao {
 
             byte[] dadosBrutos = new byte[1024];
             int qtdBytesLidos = in.read(dadosBrutos);
-            while (qtdBytesLidos >= 0) { //enquanto bytes forem lidos...
+          while (qtdBytesLidos >= 0) { //enquanto bytes forem lidos...
                 String dadosStr = new String(dadosBrutos, 0, qtdBytesLidos);
                 System.out.println(dadosStr);
                 qtdBytesLidos = in.read(dadosBrutos);

@@ -1,5 +1,10 @@
 
 import Control.PersisteDadosPessoa;
+import Model.ColaboradorClt;
+import Model.Pessoa;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,10 +25,15 @@ public class Teste {
 //        per.criaPessoa("update;00783962042;Alberto Roberto;Rua Amadeu Alves;temporario;elétrica;123456;06;eletricista");
 //        per.criaPessoa("list");
 
-        per.criaSetor("insertSetor;Mecânica;1");
-        per.criaSetor("insertSetor;asas;2");
-        per.criaSetor("updatesetor;Mecânica;Ele;2");
-        per.criaSetor("deletesetor;asas");
+//        per.criaSetor("insertSetor;Mecânica;1");
+//        per.criaSetor("insertSetor;asas;2");
+//        per.criaSetor("updatesetor;Mecânica;Ele;2");
+//        per.criaSetor("deletesetor;asas");
+
+//Pessoa pe = new ColaboradorClt("nome", "cpf", "end", "mesAnoContratado", "funcao", "0");
+//        System.out.println(pe.toString());
+  List<Integer> listaPessoas = new ArrayList<>();
+  listaPessoas.add(1);
     }
     
 }

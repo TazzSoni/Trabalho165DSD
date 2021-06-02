@@ -25,56 +25,62 @@ public class PersisteDadosPessoa {
 
     public PersisteDadosPessoa() {
     }
-    //"insert;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;mecanica;1;032021;mecânico"
-    //String nome, String cpf, String endereco, String setor, String equipe, String mesAnoContratado, String funcao
+
+    //"insert;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;032021;mecânico,1"
+    //String nome, String cpf, String endereco, String mesAnoContratado, String funcao, String setorIndex
     //"insert;00783962045;RodrigoSouzaTassoni;Rua Adolfo Wagner;temporario;mecanica;1;03;mecânico"
     //String nome, String cpf, String endereco, String setor, String equipe, String tempo, String funcao
-    public void criaPessoa(String dados) {
+    public String criaPessoa(String dados) {
 
         this.dados = dados;
         String[] textoSeparado = dados.split(";");
         String comando = textoSeparado[0].toLowerCase();
         Pessoa pessoa;
+        String mensagem = "";
 
         switch (comando) {
-            case "insertPessoa":
-                if (textoSeparado[4].equals("clt")) { 
-                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1], 
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
-                } else { 
-                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1], 
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
-                } 
+            case "insertpessoa":
+                if (textoSeparado[4].equals("clt")) {
+                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1],
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7]);
+                } else {
+                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1],
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7]);
+                }
+                System.out.println("---");
+                pessoa.setSetor(setores.get(Integer.parseInt(pessoa.getSetorIndex())));
                 insertPessoa(pessoa);
                 break;
-            case "updatePessoa":
+            case "updatepessoa":
 
-                 if (textoSeparado[4].equals("clt")) { 
-                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1], 
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
-                } else { 
-                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1], 
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
-                } 
-                updatePessoa(pessoa);
+                if (textoSeparado[4].equals("clt")) {
+                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1],
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7]);
+                } else {
+                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1],
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7]);
+                }
+                pessoa.setSetor(setores.get(Integer.parseInt(pessoa.getSetorIndex())));
+                mensagem = updatePessoa(pessoa);
                 break;
-            case "getPessoa":
-                getPessoa(textoSeparado[1]);
+            case "getpessoa":
+                mensagem = getPessoa(textoSeparado[1]);
                 break;
-            case "deletePessoa":
-                deletePessoa(textoSeparado[1]);
+            case "deletepessoa":
+                mensagem = deletePessoa(textoSeparado[1]);
                 break;
-            case "listPessoa":
-                listPessoa();
+            case "listpessoa":
+                mensagem = listPessoa();
                 break;
             default:
 
         }
+        return mensagem;
     }
 
     private void insertPessoa(Pessoa pessoa) {
         pessoas.add(pessoa);
-        System.out.println(pessoas.toString());
+        System.out.println("Aqui Pessoas " + pessoas.toString());
     }
 
     private String updatePessoa(Pessoa p) {
@@ -111,7 +117,7 @@ public class PersisteDadosPessoa {
         if (pessoas.size() > 0) {
             if (getByCpf(cpf) >= 0) {
                 Pessoa p1 = pessoas.get(getByCpf(cpf));
-                mensagem = "<" + p1.getCpf() + ">" + "<" + p1.getNome() + ">" + "<" + p1.getEndereco() + ">";
+                mensagem = "\n" + "<" + p1.getCpf() + ">;" + "<" + p1.getNome() + ">;" + "<" + p1.getEndereco() + ">";
             } else {
                 mensagem = "Pessoa não encontrada";
             }
@@ -125,13 +131,13 @@ public class PersisteDadosPessoa {
     private String listPessoa() {
         String retorno = "";
         if (pessoas.size() < 10) {
-            retorno += "0" + pessoas.size();
+            retorno += "\n" + "Lista de Funcionarios" + "\n" + "0" + pessoas.size();
 
         } else {
             retorno += pessoas.size();
         }
         for (Pessoa p : pessoas) {
-            retorno += "\n" + p.getCpf() + ";" + p.getNome() + ";" + p.getEndereco() + ";";
+            retorno += "\n" + p.getCpf() + ";" + p.getNome() + ";" + p.getEndereco() + ";" + p.getSetor().getNome() + ";" + p.getSetor().getEquipe();
         }
         System.out.println(retorno);
         return retorno;
@@ -160,12 +166,13 @@ public class PersisteDadosPessoa {
     //MÉTODOS REFERENTES A SETOR
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void criaSetor(String dados) {
+    public String criaSetor(String dados) {
 
         this.dados = dados;
         String[] textoSeparado = dados.split(";");
         String comando = textoSeparado[0].toLowerCase();
         Setor setor = new Setor();
+        String mensagem = "";
 
         switch (comando) {
             case "insertsetor":
@@ -176,27 +183,28 @@ public class PersisteDadosPessoa {
             case "updatesetor":
                 setor.setNome(textoSeparado[2].toLowerCase());
                 setor.setEquipe(textoSeparado[3]);
-                updateSetor(textoSeparado[1].toLowerCase(),setor);
+                mensagem = updateSetor(textoSeparado[1].toLowerCase(), setor);
                 break;
             case "getsetor":
-                getSetor(textoSeparado[1].toLowerCase());
+                mensagem = getSetor(textoSeparado[1].toLowerCase());
                 break;
             case "deletesetor":
-                deleteSetor(textoSeparado[1].toLowerCase());
+                mensagem = deleteSetor(textoSeparado[1].toLowerCase());
                 break;
             case "listsetor":
-                listSetor();
+                mensagem = listSetor();
                 break;
             default:
 
         }
+        return mensagem;
     }
 
     //"insertPessoa;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;032021;mecânico;Setor"
     //"insertSetor;Mecanica;000111"
     private void insertSetor(Setor setor) {
         setores.add(setor);
-        System.out.println("Aqui "+setores.toString());
+        System.out.println("Aqui " + setores.toString());
     }
 
     private String updateSetor(String s, Setor n) {
@@ -231,11 +239,11 @@ public class PersisteDadosPessoa {
     }
 
     private String getSetor(String nome) {
-        String mensagem = "";
+        String mensagem = "\n";
         if (setores.size() > 0) {
             if (getSetorByNome(nome) >= 0) {
                 Setor s1 = setores.get(getSetorByNome(nome));
-                mensagem = "<" + s1.getNome() + ">"
+                mensagem += "<" + s1.getNome() + ">"
                         + "\n" + printPessoasDoSetor(nome);
             } else {
                 mensagem = "Setor não encontrado";
@@ -247,17 +255,10 @@ public class PersisteDadosPessoa {
     }
 
     private String listSetor() {
-        String retorno = "";
-        if (setores.size() < 10) {
-            retorno += "0" + setores.size();
-
-        } else {
-            retorno += setores.size();
+        String retorno = "Lista de setores: \n";
+        for (int i = 0; i < setores.size(); i++) {
+            retorno += i + " - " + setores.get(i).getNome() + ";" + "\n";
         }
-        for (Setor s : setores) {
-            retorno += "\n" + s.getNome() + ";";
-        }
-        System.out.println(retorno);
         return retorno;
     }
 
@@ -272,7 +273,7 @@ public class PersisteDadosPessoa {
     }
 
     private List getPessoasDoSetor(String nome) {
-        List<Integer> listaPessoas = new VirtualFlow.ArrayLinkedList<>();
+        List<Integer> listaPessoas = new ArrayList<>();
         for (int i = 0; i < pessoas.size(); i++) {
             if (pessoas.get(i).getSetor().getNome().equals(nome)) {
                 listaPessoas.add(i);
@@ -287,7 +288,7 @@ public class PersisteDadosPessoa {
         for (int i = 0; i < listaPessoas.size(); i++) {
             for (int j = 0; j < pessoas.size(); j++) {
                 if (pessoas.get(i).getSetor().getNome().equals(nome)) {
-                    retorno += "<" + pessoas.get(i).getNome() + ">";
+                    retorno += "<" + pessoas.get(i).getNome() + ">"+ "\n";
                 }
             }
         }

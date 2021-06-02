@@ -22,6 +22,7 @@ public class Conexão {
         ServerSocket server = new ServerSocket(80);
         server.setReuseAddress(true);
         PersisteDadosPessoa per = new PersisteDadosPessoa();
+        String msg = "";
 
         while (true) {
             System.out.println("Aguardando conexão...");
@@ -37,15 +38,50 @@ public class Conexão {
                 int qtdBytesLidos = in.read(dadosBrutos);
                 //   while (qtdBytesLidos >= 0) { //enquanto bytes forem lidos...
                 String dadosStr = new String(dadosBrutos, 0, qtdBytesLidos);
-                System.out.println(dadosStr);
+                System.out.println("Dados = "+dadosStr);
                 //           qtdBytesLidos = in.read(dadosBrutos);
                 //         qtdBytesLidos-=1;
                 //    }
 
-                per.criaSetor(dadosStr);
+                String[] textoSeparado = dadosStr.split(";");
+                String comando = textoSeparado[0].toLowerCase();
+                switch (comando) {
+                    case "insertsetor":
+                       msg = per.criaSetor(dadosStr);
+                        break;
+                    case "updatesetor":
+                        msg = per.criaSetor(dadosStr);
+                        break;
+                    case "getsetor":
+                        msg = per.criaSetor(dadosStr);
+                        break;
+                    case "deletesetor":
+                        msg = per.criaSetor(dadosStr);
+                        break;
+                    case "listsetor":
+                        msg = per.criaSetor(dadosStr);
+                        break;
+                    case "insertpessoa":
+                        msg = per.criaPessoa(dadosStr);
+                        break;
+                    case "updatepessoa":
+                        msg = per.criaPessoa(dadosStr);
+                        break;
+                    case "getpessoa":
+                        msg = per.criaPessoa(dadosStr);
+                        break;
+                    case "deletepessoa":
+                        msg = per.criaPessoa(dadosStr);
+                        break;
+                    case "listpessoa":
+                        msg = per.criaPessoa(dadosStr);
+                        break;
+                    default:
+
+                }
                 OutputStream out = conn.getOutputStream();
-                String msg = "Tá chofento aí??? Aqui tá";
                 out.write(msg.getBytes());
+                System.out.println("Saiu");
             }
         }
 

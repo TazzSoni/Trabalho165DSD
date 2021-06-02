@@ -14,27 +14,30 @@ public class Pessoa {
     private String cpf;
     private String endereco;
     private Setor setor;
+    private String setorIndex;
 
-    public Pessoa(String nome, String cpf, String endereco, String setor, String equipe) {
+    public Pessoa(String nome, String cpf, String endereco, String setorIndex) {
         super();
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
-        
-        setSetor(setor, equipe);
+        this.setorIndex = setorIndex;
     }
 
-    
-    
+    public String getSetorIndex() {
+        return setorIndex;
+    }
+
+    public void setSetorIndex(String setorIndex) {
+        this.setorIndex = setorIndex;
+    }
+
     public Setor getSetor() {
         return setor;
     }
 
-    public void setSetor(String nome, String equipe) {
-        Setor s = new Setor();
-        s.setEquipe(equipe);
-        s.setNome(nome);
-        this.setor = s;
+    public void setSetor(Setor setor) {
+        this.setor = setor;
     }
 
     public String getNome() {
