@@ -12,7 +12,7 @@ package Model;
 public class Setor {
     
     String nome;
-    String matricula;
+    String equipe;
 
     public String getNome() {
         return nome;
@@ -22,17 +22,17 @@ public class Setor {
         this.nome = nome;
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getEquipe() {
+        return equipe;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setEquipe(String matricula) {
+        this.equipe = matricula;
     }
 
     @Override
     public String toString() {
-        return "Setor{" + "nome=" + nome + ", matricula=" + matricula + '}';
+        return "Setor{" + "nome=" + nome + ", equipe=" + equipe + '}';
     }
     
 }
