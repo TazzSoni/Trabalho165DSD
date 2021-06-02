@@ -15,13 +15,13 @@ public class Pessoa {
     private String endereco;
     private Setor setor;
 
-    public Pessoa(String nome, String cpf, String endereco, String setor, String matricula) {
+    public Pessoa(String nome, String cpf, String endereco, String setor, String equipe) {
         super();
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
         
-        setSetor(setor, matricula);
+        setSetor(setor, equipe);
     }
 
     
@@ -30,9 +30,9 @@ public class Pessoa {
         return setor;
     }
 
-    public void setSetor(String nome, String matricula) {
+    public void setSetor(String nome, String equipe) {
         Setor s = new Setor();
-        s.setMatricula(matricula);
+        s.setEquipe(equipe);
         s.setNome(nome);
         this.setor = s;
     }

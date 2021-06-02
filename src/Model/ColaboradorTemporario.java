@@ -15,8 +15,8 @@ public class ColaboradorTemporario extends Pessoa {
     private String tempoDeContrato;
     private String tipo = "TEMPORÁRIO";
 
-    public ColaboradorTemporario(String nome, String cpf, String endereco, String setor, String matricula, String tempo, String funcao) {
-        super(nome, cpf, endereco, setor, matricula);
+    public ColaboradorTemporario(String nome, String cpf, String endereco, String setor, String equipe, String tempo, String funcao) {
+        super(nome, cpf, endereco, setor, equipe);
         this.funcao = funcao;
         this.tempoDeContrato = tempo;
     }

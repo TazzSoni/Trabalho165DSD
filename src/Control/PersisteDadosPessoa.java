@@ -25,7 +25,10 @@ public class PersisteDadosPessoa {
 
     public PersisteDadosPessoa() {
     }
-//"insert;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;mecânica;123456;032021;mecânico"
+    //"insert;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;mecanica;1;032021;mecânico"
+    //String nome, String cpf, String endereco, String setor, String equipe, String mesAnoContratado, String funcao
+    //"insert;00783962045;RodrigoSouzaTassoni;Rua Adolfo Wagner;temporario;mecanica;1;03;mecânico"
+    //String nome, String cpf, String endereco, String setor, String equipe, String tempo, String funcao
     public void criaPessoa(String dados) {
 
         this.dados = dados;
@@ -35,24 +38,24 @@ public class PersisteDadosPessoa {
 
         switch (comando) {
             case "insertPessoa":
-                if (textoSeparado[4].equals("clt")) {
-                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1],
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]);
-                } else {
-                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1],
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]);
-                }
+                if (textoSeparado[4].equals("clt")) { 
+                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1], 
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
+                } else { 
+                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1], 
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
+                } 
                 insertPessoa(pessoa);
                 break;
             case "updatePessoa":
 
-                if (textoSeparado[4].equals("clt")) {
-                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1],
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]);
-                } else {
-                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1],
-                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]);
-                }
+                 if (textoSeparado[4].equals("clt")) { 
+                    pessoa = new ColaboradorClt(textoSeparado[2], textoSeparado[1], 
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
+                } else { 
+                    pessoa = new ColaboradorTemporario(textoSeparado[2], textoSeparado[1], 
+                            textoSeparado[3], textoSeparado[5], textoSeparado[6], textoSeparado[7], textoSeparado[8]); 
+                } 
                 updatePessoa(pessoa);
                 break;
             case "getPessoa":
@@ -108,8 +111,7 @@ public class PersisteDadosPessoa {
         if (pessoas.size() > 0) {
             if (getByCpf(cpf) >= 0) {
                 Pessoa p1 = pessoas.get(getByCpf(cpf));
-                mensagem = "<" + p1.getCpf() + ">" + "<" + p1.getNome() + ">" + "<" + p1.getEndereco() + ">"
-                        + "<" + p1.getSetor().getNome() + ">" + "<" + p1.getSetor().getEquipe()+ ">";
+                mensagem = "<" + p1.getCpf() + ">" + "<" + p1.getNome() + ">" + "<" + p1.getEndereco() + ">";
             } else {
                 mensagem = "Pessoa não encontrada";
             }
@@ -129,7 +131,7 @@ public class PersisteDadosPessoa {
             retorno += pessoas.size();
         }
         for (Pessoa p : pessoas) {
-            retorno += "\n" + p.getCpf() + ";" + p.getNome() + ";" + p.getEndereco() + ";" + p.getSetor().getNome() + ";" + p.getSetor().getEquipe();
+            retorno += "\n" + p.getCpf() + ";" + p.getNome() + ";" + p.getEndereco() + ";";
         }
         System.out.println(retorno);
         return retorno;
