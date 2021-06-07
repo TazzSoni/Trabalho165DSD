@@ -26,20 +26,15 @@ A aplicação servidor mantém dados de pessoas, com cpf, nome, endereço, confo
 
 A manipulação dos dados é realizada a partir de mensagens recebidas do cliente, via Socket. A mensagem é uma String que é separada pelo caracter especial ";". Essa String contém, em posições específicas, a operação de manipulação e os dados requeridos, conforme esquema abaixo.
 
-| Primeiro cabeçalho  |  Segundo cabeçalho  |
-| ------------------- | ------------------- |
-|  Célula de conteúdo |  Célula de conteúdo |
-|  Célula de conteúdo |  Célula de conteúdo |
+//"insertSetor;Mecanica;000111"
 
-[**INSERÇÃO DE REGISTRO**]
-|-------------------------------------------|
-| Conteúdo | Posições Conteúdo    |
-| da       | [0...5] “INSERT”     |
-| Mensagem | [6...16] cpf         |
-|          | [17...116] nome      |
-|          | [117...216] endereço |
-| Descrição |  Insere o registro da pessoa |
-| Retorno | Não há|
+**INSERÇÃO DE REGISTRO DE SETOR**
+| Posições  |  conteúdo  |
+| ------------------- | ------------------- |
+|  0 |  insertSsetor |
+|  1 |  nome |
+|  1 |  equipe |
+
 
 ## [Dataset](#dataset)
 Este dataset é o resultado de análises quimicas em vinhos fabricados na mesma região da Itália, porém derivados de três tipos distintos de cultivos. A análise determinou a quantidade de 13 substâncias encontradas em cada um dos três tipos de cultivos. 
