@@ -49,7 +49,22 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 | ------------------- | ------------------- |
 |  0 |  getsetor |
 |  1 |  nome |
-| Retorno | Retorna uma String com os dados da pessoa no formato: <nome><quantidade de pessoas do setor>.<br>Se a pessoa não existir, então retorna “Pessoa não encontrada”.<br>Se não houver nenhuma pessoa cadastrada, então retorna “Sem pessoas cadastradas”|
+| Retorno | Retorna uma String com os dados da pessoa no formato: "<nome><quantidade de pessoas do setor>".<br>Se o setor não existir, então retorna “Setor não encontrado”.<br>Se não houver nenhum setor cadastrado, então retorna “Sem setores cadastrados”|
+ 
+ **REMOÇÃO DE REGISTRO DE SETOR**
+| Posições  |  conteúdo  |
+| ------------------- | ------------------- |
+|  0 |  deletesetor |
+|  1 |  nome |
+| Retorno | Se o setor for removido, então retorna ”Setor removido com sucesso”.<br>Se o setor não existir, então retorna “Setor não encontrado”.<br>Se não houver nenhum setor cadastrado, então retorna “Sem setores cadastrados”|
+ 
+ **OBTENÇÃO DE TODOS OS REGISTRO DE SETOR**
+| Posições  |  conteúdo  |
+| ------------------- | ------------------- |
+|  0 |  listsetor |
+| Retorno | A String de retorno é formada pela quantidade de registros existentes seguido pelos<br>dados das pessoas cadastradas, com quebra de linha entre eles. Exemplos:<br>Se existissem 3 pessoas, o retorno seria:<br>Lista de setores:<br>03<br>mecanica<br>eletrica<br>operacao|
+ 
+ 
 
 ## [Dataset](#dataset)
 Este dataset é o resultado de análises quimicas em vinhos fabricados na mesma região da Itália, porém derivados de três tipos distintos de cultivos. A análise determinou a quantidade de 13 substâncias encontradas em cada um dos três tipos de cultivos. 
