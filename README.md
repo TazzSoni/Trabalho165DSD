@@ -19,7 +19,8 @@ Atividade desenvolvida para a disciplina de Inteligência Computacional do [Cent
 ## [Cenário Base](#problema)
 
 A aplicação servidor mantém dados de pessoas, com cpf, nome, endereço, podendo ser do tipo "ColaboradorClt" com, função, mesAnoContratado (no formato MMAAAA) e tipo com uma String fixa "CLT" ou "ColaboradorTemporario" com, função, tempoDeContrato (no formato MM) e tipo com uma string fixa "TEMPORARIO", também tendo agregação com Setor possuindo os atributos nome e equipe, conforme diagrama diagrama de classes abaixo. A aplicação servidor deve oferecer operações para que os clientes manipulem estes dados remotamente. Os dados são mantidos apenas em memória.<br>
-[Diagrama em branco](https://user-images.githubusercontent.com/45270751/120961607-85167380-c734-11eb-8efa-a9f49c72ecbc.png)
+![Diagrama em branco](https://user-images.githubusercontent.com/45270751/120961741-c3ac2e00-c734-11eb-85e2-7b3581c23281.png)
+
 
 A manipulação dos dados é realizada a partir de mensagens recebidas do cliente, via Socket. A mensagem é uma String que é separada pelo caracter especial ";". Essa String contém, em posições específicas, a operação de manipulação e os dados requeridos, conforme esquema abaixo.
 
