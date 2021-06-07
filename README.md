@@ -122,7 +122,3 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 
 ## [Aplicação Cliente](#aplicacao)
 
-
-
-## [Vídeo](#video)
-
