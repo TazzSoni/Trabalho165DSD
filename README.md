@@ -26,6 +26,11 @@ A aplicação servidor mantém dados de pessoas, com cpf, nome, endereço, confo
 
 A manipulação dos dados é realizada a partir de mensagens recebidas do cliente, via Socket. A mensagem é uma String que é separada pelo caracter especial ";". Essa String contém, em posições específicas, a operação de manipulação e os dados requeridos, conforme esquema abaixo.
 
+| Primeiro cabeçalho  |  Segundo cabeçalho  |
+| ------------------- | ------------------- |
+|  Célula de conteúdo |  Célula de conteúdo |
+|  Célula de conteúdo |  Célula de conteúdo |
+
 [**INSERÇÃO DE REGISTRO**]
 | Conteúdo | Posições Conteúdo    |
 | da       | [0...5] “INSERT”     |
