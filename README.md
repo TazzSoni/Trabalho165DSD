@@ -69,7 +69,6 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 |Descrição| Busca todos os setores cadastrados para retornar.|
 | Retorno | A String de retorno é formada pela quantidade de registros existentes seguido pelos<br>nomes dos setores cadastrados, com quebra de linha entre eles. Exemplos:<br>Se existissem 3 setores, o retorno seria:<br>Lista de setores:<br>03<br>mecanica<br>eletrica<br>operacao<br>Se não existirem setores cadastrados, o retorno seria apenas o valor 00 (zero zero).<br>Assumir que existirão no máximo 99 setores cadastrados.|
  
- //"insertPessoa;00783962042;LacoSouzaTassoni;Rua arbt Wagner;clt;032021;mecânico;Setor
 **INSERÇÃO DE REGISTRO DE PESSOA**
 | Posições  |  conteúdo  |
 | ------------------- | ------------------- |
