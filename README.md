@@ -5,7 +5,7 @@
 
 # Registro de Funcionários
 
-Atividade desenvolvida para a disciplina de Inteligência Computacional do [Centro de Educação Superior do Alto Vale do Itajaí (CEAVI/UDESC)](https://www.udesc.br/ceavi)
+Atividade desenvolvida para a disciplina de Inteligência Computacional do [Centro de Educação Superior do Alto Vale do Itajaí (CEAVI/UDESC)](https://www.udesc.br/ceavi)<br>
 O objetivo do trabalho é praticar o desenvolvimento de sistemas distribuídos usando Sockets. Será desenvolvido um sistema distribuído composto por uma aplicação servidor e outra cliente para manter dados de objetos (CRUD).
 
 # Sumário
