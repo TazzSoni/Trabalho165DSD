@@ -31,9 +31,18 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 **INSERÇÃO DE REGISTRO DE SETOR**
 | Posições  |  conteúdo  |
 | ------------------- | ------------------- |
-|  0 |  insertSsetor |
+|  0 |  insertsetor |
 |  1 |  nome |
 |  1 |  equipe |
+| Retorno | Não há |
+
+**EDIÇÃO DE REGISTRO DE SETOR**
+| Posições  |  conteúdo  |
+| ------------------- | ------------------- |
+|  0 |  updatesetor |
+|  1 |  nome |
+|  1 |  equipe |
+| Retorno | Se a pessoa for atualizada, então retorna “Pessoa atualizada com sucesso”. Se a pessoa não existir, então retorna “Pessoa não encontrada”. |
 
 
 ## [Dataset](#dataset)
