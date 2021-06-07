@@ -117,7 +117,7 @@ public class PersisteDadosPessoa {
         if (pessoas.size() > 0) {
             if (getByCpf(cpf) >= 0) {
                 Pessoa p1 = pessoas.get(getByCpf(cpf));
-                mensagem = "\n" + "<" + p1.getCpf() + ">;" + "<" + p1.getNome() + ">;" + "<" + p1.getEndereco() + ">";
+                mensagem = "\n" +  p1.getCpf() + ";" +  p1.getNome() + ";" +  p1.getEndereco() ;
             } else {
                 mensagem = "Pessoa não encontrada";
             }
@@ -131,7 +131,7 @@ public class PersisteDadosPessoa {
     private String listPessoa() {
         String retorno = "";
         if (pessoas.size() < 10) {
-            retorno += "\n" + "Lista de Funcionarios" + "\n" + "0" + pessoas.size();
+            retorno += "\n" + "Lista de Funcionarios:" + "\n" + "0" + pessoas.size();
 
         } else {
             retorno += pessoas.size();
@@ -213,9 +213,9 @@ public class PersisteDadosPessoa {
             setores.remove(indice);
             setores.add(n);
 
-            return "Pessoa atualizada com sucesso";
+            return "Setor atualizada com sucesso";
         } else {
-            return "Pessoa não encontrada";
+            return "Setor não encontrada";
         }
     }
 
@@ -243,7 +243,7 @@ public class PersisteDadosPessoa {
         if (setores.size() > 0) {
             if (getSetorByNome(nome) >= 0) {
                 Setor s1 = setores.get(getSetorByNome(nome));
-                mensagem += "<" + s1.getNome() + ">"
+                mensagem += s1.getNome().toUpperCase()
                         + "\n" + printPessoasDoSetor(nome);
             } else {
                 mensagem = "Setor não encontrado";
@@ -255,7 +255,13 @@ public class PersisteDadosPessoa {
     }
 
     private String listSetor() {
-        String retorno = "Lista de setores: \n";
+        String retorno = "";
+        if (pessoas.size() < 10) {
+            retorno += "\n" + "Lista de setores:" + "\n" + "0" + setores.size()+ "\n" ;
+
+        } else {
+            retorno += setores.size();
+        }
         for (int i = 0; i < setores.size(); i++) {
             retorno += i + " - " + setores.get(i).getNome() + ";" + "\n";
         }
@@ -288,7 +294,7 @@ public class PersisteDadosPessoa {
         for (int i = 0; i < listaPessoas.size(); i++) {
             for (int j = 0; j < pessoas.size(); j++) {
                 if (pessoas.get(i).getSetor().getNome().equals(nome)) {
-                    retorno += "<" + pessoas.get(i).getNome() + ">"+ "\n";
+                    retorno += pessoas.get(i).getNome() + "\n";
                 }
             }
         }
