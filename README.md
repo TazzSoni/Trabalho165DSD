@@ -10,7 +10,7 @@ Atividade desenvolvida para a disciplina de Inteligência Computacional do [Cent
 # Sumário
 * [Equipe](#equipe)
 * [Cenário Base](#problema)
-* [Aplicação Cliente](#aplicacao cliente)
+* [Aplicação Cliente](#aplicacao)
 * [Vídeo](#video)
 
 ## [Equipe](#equipe)
@@ -118,7 +118,7 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 | Retorno | A String de retorno é formada pela quantidade de registros existentes seguido pelos<br>dados das pessoas cadastradas, com quebra de linha entre eles. Exemplos:<br>Se existissem 3 pessoas, o retorno seria:<br>Lista de Funcionarios:<br>03<br>01234567891;José;Rua X;mecanica;1<br>23456789012;Maria;Rua Y;eletrica;2<br>34567890123;Pedro;Rua Z;operacao;1<br>Se não existirem pessoas cadastradas, o retorno seria apenas o valor 00 (zero zero).<br>Assumir que existirão no máximo 99 pessoas cadastradas.|
  
 
-## [Aplicação Cliente](#aplicacao cliente)
+## [Aplicação Cliente](#aplicacao)
 
 
 
