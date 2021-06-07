@@ -32,14 +32,13 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 |  Célula de conteúdo |  Célula de conteúdo |
 
 [**INSERÇÃO DE REGISTRO**]
+|-------------------------------------------|
 | Conteúdo | Posições Conteúdo    |
 | da       | [0...5] “INSERT”     |
 | Mensagem | [6...16] cpf         |
 |          | [17...116] nome      |
 |          | [117...216] endereço |
-|-------------------------------------------|
 | Descrição |  Insere o registro da pessoa |
-|-------------------------------------------|
 | Retorno | Não há|
 
 ## [Dataset](#dataset)
