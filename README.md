@@ -11,7 +11,6 @@ Atividade desenvolvida para a disciplina de Inteligência Computacional do [Cent
 * [Equipe](#equipe)
 * [Cenário Base](#problema)
 * [Aplicação Cliente](#aplicacao)
-* [Vídeo](#video)
 
 ## [Equipe](#equipe)
  - [**Rodrigo Souza Tassoni**](mailto:tazzsoni@gmail.com) - [TazzSoni](https://github.com/tazzsoni)
@@ -126,4 +125,3 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 
 ## [Vídeo](#video)
 
-https://youtu.be/7i00HM8vaYI
