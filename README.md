@@ -44,6 +44,16 @@ A manipulação dos dados é realizada a partir de mensagens recebidas do client
 |  1 |  equipe |
 | Retorno | Se a pessoa for atualizada, então retorna “Pessoa atualizada com sucesso”. Se a pessoa não existir, então retorna “Pessoa não encontrada”. |
 
+**OBTENÇÃO DE REGISTRO DE SETOR**
+| Posições  |  conteúdo  |
+| ------------------- | ------------------- |
+|  0 |  getsetor |
+|  1 |  nome |
+| Retorno | Retorna uma String com os dados da pessoa no formato: <cpf>;<nome>;<endereço>.
+Se a pessoa não existir, então retorna “Pessoa não encontrada”.
+Se não houver nenhuma pessoa cadastrada, então retorna “Sem pessoas cadastradas”
+|
+
 
 ## [Dataset](#dataset)
 Este dataset é o resultado de análises quimicas em vinhos fabricados na mesma região da Itália, porém derivados de três tipos distintos de cultivos. A análise determinou a quantidade de 13 substâncias encontradas em cada um dos três tipos de cultivos. 
