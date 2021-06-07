@@ -117,7 +117,7 @@ public class PersisteDadosPessoa {
         if (pessoas.size() > 0) {
             if (getByCpf(cpf) >= 0) {
                 Pessoa p1 = pessoas.get(getByCpf(cpf));
-                mensagem = "\n" +  p1.getCpf() + ";" +  p1.getNome() + ";" +  p1.getEndereco() ;
+                mensagem = "\n" + p1.getCpf() + ";" + p1.getNome() + ";" + p1.getEndereco();
             } else {
                 mensagem = "Pessoa não encontrada";
             }
@@ -257,7 +257,7 @@ public class PersisteDadosPessoa {
     private String listSetor() {
         String retorno = "";
         if (pessoas.size() < 10) {
-            retorno += "\n" + "Lista de setores:" + "\n" + "0" + setores.size()+ "\n" ;
+            retorno += "\n" + "Lista de setores:" + "\n" + "0" + setores.size() + "\n";
 
         } else {
             retorno += setores.size();
@@ -278,38 +278,15 @@ public class PersisteDadosPessoa {
         return index;
     }
 
-    private List getPessoasDoSetor(String nome) {
-        List<Integer> listaPessoas = new ArrayList<>();
-        for (int i = 0; i < pessoas.size(); i++) {
-            if (pessoas.get(i).getSetor().getNome().equals(nome)) {
-                listaPessoas.add(i);
-            }
-        }
-        return listaPessoas;
-    }
-
     private String printPessoasDoSetor(String nome) {
-        List<Integer> listaPessoas = getPessoasDoSetor(nome);
         String retorno = "";
-        for (int i = 0; i < listaPessoas.size(); i++) {
-            for (int j = 0; j < pessoas.size(); j++) {
-                if (pessoas.get(i).getSetor().getNome().equals(nome)) {
-                    retorno += pessoas.get(i).getNome() + "\n";
-                }
+
+        for (Pessoa p : pessoas) {
+            if(p.getSetor().getNome().equals(nome)){
+                retorno += p.getNome() + "\n";
             }
         }
         return retorno;
     }
-//
-//    private int getByCpf(String cpf) {
-//        int index = -1;
-//        for (int i = 0; i < pessoas.size(); i++) {
-//            if (pessoas.get(i).getCpf().equals(cpf)) {
-//                index = i;
-//            }
-//        }
-//        return index;
-//    }
-//
 
 }
